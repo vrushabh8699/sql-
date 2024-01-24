@@ -1,0 +1,6 @@
+
+declare @name1 varchar(50) = '       Vrushab     '
+print @name1
+print ltrim(@name1)
+print rtrim(@Name1)
+print trim(@name1)
