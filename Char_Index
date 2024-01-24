@@ -1,0 +1,6 @@
+declare @name4 varchar(50) = 'Vrushabh'
+print @name4
+print charindex('h', @name4) -- 3
+print charindex('v', @name4) -- 1
+print charindex('a', @name4) -- 4
+print charindex('z', @name4) -- 0
