@@ -1,0 +1,27 @@
+**** replicate function *****
+print 'v#'
+print replicate('v#', 3)
+print replicate('*', 8) + '4756'
+print '********' + '4756'
+
+go
+
+*** V function ***
+print 'vihaan' + ' ' + 'rathod'
+print 'vihaan' + '     ' + 'rathod'
+print 'vihaan' + space(20) + 'rathod'
+
+go
+**** replace function ****
+declare @site varchar(50) = 'www.google.com'
+print @site
+print replace(@site, '.com', '.co.in')
+
+go
+
+select getdate() -- 2023-10-04 11:59:15.547
+select current_timestamp -- 2023-10-04 11:59:44.883
+select sysDateTime() -- 2023-10-04 12:00:27.3188316
+select SYSDATETIMEOFFSET() -- 2023-10-04 12:00:41.9913057 +05:30
+select GETUTCDATE() -- 2023-10-04 06:30:54.773
+select SysUTCDATETIME() -- 2023-10-04 06:31:16.6777431
