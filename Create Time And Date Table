@@ -1,0 +1,20 @@
+create table TimeTable
+(
+cdate date,
+ctime time, 
+csmalldatetime smalldatetime,
+cdatetime datetime,
+cdatetime2 datetime2,
+cdatetimeoffset datetimeoffset
+)
+
+insert into TimeTable values 
+(getdate(),getdate(), getdate(), getdate(), getdate(), getdate())
+
+insert into TimeTable values 
+(getdate(),getdate(), getdate(), getdate(), SYSDATETIMEOFFSET(), SYSDATETIMEOFFSET())
+
+select * from TimeTable
+
+select getdate()
+select SYSDATETIMEOFFSET() 
