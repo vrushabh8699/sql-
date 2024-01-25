@@ -1,0 +1,42 @@
+**** many to many relation ****
+
+create table Teacher
+(
+Id int primary key,
+Name varchar(50),
+Specilizaiton varchar(50)
+)
+go
+insert into Teacher values 
+(1, 'anil', 'marathi'), 
+(2, 'rahul', 'Mathematics'), 
+(3, 'atul', 'History')
+go
+create table Standard
+(
+Id int primary key,
+Name varchar(50),
+Strength int
+)
+go
+insert into Standard values 
+(1, 'Standard 1', 20), 
+(2, 'Standard 2', 25)
+go
+select * from Teacher
+select * from Standard
+go
+create table TeacherStandardAssignment
+(
+AssignmentId int primary key,
+TeacherId int foreign key references Teacher (Id),
+StandardId int foreign key references Standard (Id)
+)
+go 
+insert into TeacherStandardAssignment values
+(1, 1, 1), (2, 1, 2)
+insert into TeacherStandardAssignment values (3, 2, 1)
+go
+select * from Teacher
+select * from Standard
+select * from Teacher
