@@ -1,0 +1,10 @@
+**** Upper function *****
+declare @name varchar(50) = 'Vrushabh'
+print @name
+print upper(@name)
+print lower(@name)
+
+**** Reverse function ****
+declare @name2 varchar(50) = 'vihaan'
+print len(@name2)
+print reverse(@name2) -- naahiv
