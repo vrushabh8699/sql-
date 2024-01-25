@@ -1,0 +1,19 @@
+select ascii('A') 
+select ascii('!')
+select ascii('0') 
+select ascii('a')
+
+find character from ascii code
+select char(66) 
+select char(32) 
+
+use ascii values from A to Z and print characters
+
+declare @start int  = 65
+while (@start <= 90)
+begin
+	print char(@start)
+	set @start = @start + 1
+end
+
+go
