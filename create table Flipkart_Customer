@@ -1,0 +1,22 @@
+create table FlipkartCustomer
+(
+Id int not null,
+Name varchar(50),
+UnitPrice int
+)
+go
+insert into FlipkartCustomer values (1, 'shirt', 500), (2, 't-shirt', 299)
+go
+select * from FlipkartCustomer
+go
+
+create clustered index Ix_Customer_Name
+on FlipkartCustomer(Name asc)
+
+go
+select * from FlipkartCustomer
+go
+*** creating primary key ***
+alter table FlipkartCustomer
+add constraint Pk_Customer_Id
+primary key(Id)
