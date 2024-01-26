@@ -1,0 +1,105 @@
+use student
+go
+select getdate()
+print isdate(getdate())
+print isdate('1990-09-16')
+print isdate('1') 
+print isdate('2023-02-31') 
+
+go
+
+print getdate()
+print day(getdate())
+print month(getdate())
+print year(getdate())
+
+go
+
+**** datename(datepart, inputdate) *****
+print datename(day, getdate()) 
+print datename(month, getdate()) 
+print datename(year, getdate())
+print datename(yy, getdate()) 
+print datename(dayofyear, getdate()) 
+print datename(weekday, getdate())
+print datename(tzoffset, sysdatetimeoffset())
+print datename(hour, sysdatetimeoffset()) 
+print datename(quarter, sysdatetimeoffset()) 
+print datename(q, '1990-09-16') 
+print datename(q, '1990-02-16') 
+
+go
+
+print datepart(day, getdate())
+print datepart(month, getdate()) 
+print datepart(year, getdate()) 
+
+*** datename() vs datepart() ***
+*** datename() returns string output ***
+*** datepart() returns int output ***
+
+print datename(month, getdate()) 
+print datepart(month, getdate())
+
+print datename(year, getdate()) 
+print datepart(year, getdate()) 
+
+print datename(year, getdate()) + datename(year, getdate())
+print datepart(year, getdate()) + datepart(year, getdate()) 
+
+print datename(weekday, getdate())
+print datepart(weekday, getdate()) 
+
+go
+
+*** to add parts in date we use dateadd() ***
+print getdate()
+print dateadd(day, 3, getdate())
+print dateadd(month, 6, getdate())
+print dateadd(year, -48, getdate())
+select dateadd(hour, 1, getdate()) 
+
+declare @DOB date = '1990-09-16', @Today date = getdate()
+print datediff(year, @DOB, @Today) 
+print datediff(month, @DOB, @Today) 
+print datediff(day, @DOB, @Today)  
+
+go
+*** convert() function has third style parameter, which is very useful for date formatting ***
+select getdate() 
+select convert(date, getdate()) 
+select convert(varchar(50), getdate(), 100) 
+select convert(varchar(50), getdate(), 101) 
+select convert(varchar(50), getdate(), 102) 
+select convert(varchar(50), getdate(), 103)
+select convert(varchar(50), getdate(), 104) 
+
+print abs(-10) 
+print abs(-10.456) 
+
+*** ceiling - returns upper closest whole number ***
+print ceiling(15.2) 
+print ceiling(-15.2) 
+
+*** floor - returns lower closest whole number ***
+print floor(15.9) 
+print floor(-15.9) 
+
+print square(15) 
+print square(15.5) 
+
+print sqrt(16) 
+print sqrt(144) 
+
+print power(2, 8) 
+print power(2, 3) 
+
+go
+select round(465.568, 2) 
+select round(465.568, 2, 1)
+select round(465.568, 1) 
+select round(465.568, 1, 1) 
+
+select round(465.568, -2) 
+*** 465.568 -> 465.57 -> 465.6 -> 466 -> 47 -> 5
+select round(465.568, -1) 
