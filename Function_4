@@ -1,0 +1,26 @@
+print getdate() 
+print eomonth(getdate()) 
+print eomonth('2023-02-03') 
+print eomonth('vhaash') -- error
+print eomonth('2023-02-30') -- error
+go
+
+*** date datatypes
+*** date, time, smalldatetime, datetime, datetime2, datetimeoffset
+
+select datefromparts(2023, 10, 6) 
+select datefromparts(1990, 9, 16) 
+select datefromparts(1990, 9, 32) -- error
+
+select timefromparts(11, 53, 45, 856, 3) 
+select timefromparts(11, 53, 45, 856, 7) 
+select timefromparts(11, 53, 45, 0, 0) 
+
+select smalldatetimefromparts(2023, 10, 6, 11, 53) 
+
+select DATETIMEFROMPARTS(2023, 10, 6, 11, 23, 45, 456) 
+
+select DATETIME2FROMPARTS(2023, 10, 6, 11,12, 52, 458, 4) 
+
+select DATETIMEOFFSETFROMPARTS(2023, 10, 6, 11, 12, 56, 587, 5, 30, 3)
+
