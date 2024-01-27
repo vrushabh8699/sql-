@@ -1,0 +1,25 @@
+*** COALESCE ***
+
+create table Person
+(
+Id int identity,
+Name varchar(50),
+Gender varchar(10),
+City varchar(50),
+PrimaryEmail varchar(50),
+AlternateEmail varchar(50)
+)
+go
+insert into Person values ('ajay', 'male', 'pune', 'a@a.com', null),
+('shital', 'female', 'pune', null, 's1@s1.com'),
+('ganesh', 'male', 'mumbai', 'g@g.com', null),
+('kiran', 'male', 'mumbai', null, null)
+
+insert into Person values ('vijay', 'male', 'pune', 'v@v.com', 'v1@v1.com')
+go
+select * from Person
+go
+
+select Name, PrimaryEmail, AlternateEmail,
+COALESCE(PrimaryEmail, AlternateEmail, 'NO EMAIL') as Email
+from Person
