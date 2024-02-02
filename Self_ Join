@@ -1,0 +1,34 @@
+
+** join ***
+create table Employee
+(
+Id int,
+Name varchar(50),
+ManagerId int
+)
+go
+insert into Employee values 
+(1, 'ajay', 2), (2, 'Usha', 4), (3, 'ashish', 4), (4, 'vikul',null), (5, 'kajal', 2),
+(6, 'akshay', 3)
+go
+
+select Id, Name, ManagerId from Employee
+go
+-- employee name - manager name
+
+select e.Name as EmployeeName, m.Name as ManagerName
+from Employee e join Employee m
+on e.ManagerId = m.Id
+
+select e.Name as EmployeeName, m.Name as ManagerName
+from Employee e left join Employee m
+on e.ManagerId = m.Id
+
+-- manager name and number of employees reporting to that manager
+select m.Name as ManagerName, count(e.Id) as Total
+from Employee e join Employee m
+on e.ManagerId = m.Id
+group by m.Name
+
+select e.Name as EmployeeName, m.Name as ManagerName
+from Employee e cross join Employee m
