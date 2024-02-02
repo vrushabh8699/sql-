@@ -1,0 +1,65 @@
+create table Trainer
+(
+Id int primary key,
+Name varchar(50),
+Experience int
+)
+go
+insert into Trainer values (1, 'vikul', 13), (2, 'usha', 2)
+go
+create table Student
+(
+RollNumber int primary key,
+Name varchar(50),
+City varchar(50),
+TrainerId int foreign key references Trainer(Id)
+)
+go
+insert into Student values (1,'ajay', 'pune', 1), (2, 'ganesh', 'mumbai', 1)
+insert into Student values (3, 'vishal', 'pune', 2)
+insert into Student values (4, 'bahu', 'pune', null)
+go
+select * from Trainer
+select * from Student
+go
+select TrainerId, count(RollNumber) as Total from Student
+group by TrainerId
+go
+create table Product
+(
+Id int primary key identity,
+Name varchar(50),
+Price int
+)
+go
+insert into Product values 
+('Mobile', 15000), ('TV', 25000), ('LAPTOP', 50000)
+go
+create table ProductSales
+(
+Id int primary key identity,
+ProductId int foreign key references Product(Id),
+Quantity int
+)
+go
+insert into ProductSales values 
+(1, 1), (3, 1), (1, 4)
+go
+select * from Product
+select * from ProductSales
+go
+-- product name which are sold
+select Name from Product where Id in (1, 3)
+select distinct ProductId from ProductSales 
+
+-- using suqbuery
+select Name from Product where Id in (select distinct ProductId from ProductSales)
+
+-- product name which are not sold
+select Name from Product where Id not in (select distinct ProductId from ProductSales)
+
+-- Product Name, Price 
+select Name, Price from Product
+
+-- Product Id & Total Number of quantity sold
+select ProductId, Quantity from ProductSales
