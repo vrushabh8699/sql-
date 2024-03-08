@@ -1,0 +1,32 @@
+use ADO
+go
+---- ITtrainer table
+create table ITtrainer
+(
+trainerId int primary key,
+name varchar(50),
+gender varchar(20)
+)
+go
+insert into ITtrainer values(1,'atul','male'),(2,'sushil','male'),
+(3,'rupali','female')
+
+
+select * from ITtrainer
+select * from ITstudent
+
+
+-- ITstudent table
+create table ITstudent
+(
+name varchar (50) not null,
+city varchar(20),
+course varchar(20) default'asp',
+mobile int,
+trainerId int foreign key references ITtrainer(trainerId)
+)
+insert into ITstudent values('avi','ytl','asp',845697,1),
+('ashish','amt','asp',4568987,2),
+('pallvi','satara','asp',78952,3),
+('aaa','satara','asp',78952,1)
+
