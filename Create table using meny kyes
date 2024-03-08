@@ -1,0 +1,15 @@
+use ADO
+go
+Create table wiproemp
+(
+EmpId int primary key,
+Name varchar(50) not null,
+Gender varchar(20),
+Age int check(age >=1 and age <=150),
+Post varchar(20),
+Mobile int unique
+)
+insert into wiproemp values(11,'Privin Kumar','Male',25,'Software Engg',8889854612),
+(12,'Sushil Babu','Male',22,'Software Engg',7789854612),
+(13,'Priya Nemale','Female',51,'Software Engg',9989854612),
+(14,'Vahit Kumar','Male',33,'Software Engg',7779854612)
