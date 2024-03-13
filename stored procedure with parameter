@@ -1,0 +1,42 @@
+use ADO
+go
+-- stored procedure with parameter
+
+create proc uspGetAllStudentsOnGender
+@Gender varchar(20)
+as
+begin
+	select * from ADO where Gender = @Gender
+end
+
+go
+
+execute uspGetAllStudentsOnGender
+-- Procedure or function 'uspGetAllStudentsOnGender' expects parameter '@Gender', which was not supplied.
+
+execute uspGetAllStudentsOnGender 'male'
+execute uspGetAllStudentsOnGender 'female'
+execute uspGetAllStudentsOnGender 'all'
+-- select * from B22Student where Gender = 'all' -- no student having gender as all
+go
+
+alter proc uspGetAllStudentsOnGender
+@Gender varchar(20)
+as
+begin
+	
+	if @Gender = 'male' or @Gender = 'female'
+	begin
+		select * from ADO where Gender = @Gender
+	end
+	else
+	begin
+		select * from ADO
+	end	
+end
+
+go
+
+execute uspGetAllStudentsOnGender 'male'
+execute uspGetAllStudentsOnGender 'female'
+execute uspGetAllStudentsOnGender 'all'
