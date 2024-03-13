@@ -1,0 +1,35 @@
+use ADO
+go
+- simple sp
+create procedure uspGetAllStudents
+as
+begin
+	select * from ADO
+end
+
+-- call sp
+execute uspGetAllStudents
+
+-- using select statement we cannot execute stored procedure
+-- select RollNumber, uspGetAllStudents from B22Student
+
+alter procedure uspGetAllStudents
+as
+begin
+	select * from ADO where Gender = 'Male'
+end
+
+execute uspGetAllStudents
+go
+
+drop procedure uspGetAllStudents
+go
+
+create proc uspGetAllStudents
+as
+begin
+	select * from ADO
+end
+go
+
+exec uspGetAllStudents
