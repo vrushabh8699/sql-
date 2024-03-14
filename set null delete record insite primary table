@@ -1,0 +1,22 @@
+-- set null
+drop table Student
+go
+create table Student
+(
+RollNumber int primary key,
+Name varchar(50),
+City varchar(50),
+TrainerId int foreign key references Trainer(Id) on delete set null
+)
+go
+insert into Student values (1,'ajay', 'pune', 1), (2, 'ganesh', 'mumbai', 1)
+insert into Student values (3, 'vishal', 'pune', 2)
+insert into Student values (4, 'bahu', 'pune', null)
+go
+select * from Trainer
+select * from Student
+go
+delete from Trainer where Id = 1
+go
+
+drop table Student
