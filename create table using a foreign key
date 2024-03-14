@@ -1,0 +1,29 @@
+use ADO
+go
+drop table Student
+go
+create table Trainer
+(
+Id int primary key,
+Name varchar(50),
+Experience int
+)
+go
+insert into Trainer values (1, 'vikul', 13), (2, 'usha', 2)
+go
+select * from Trainer
+go
+create table Student
+(
+RollNumber int primary key,
+Name varchar(50),
+City varchar(50),
+TrainerId int
+)
+go
+insert into Student values (1,'ajay', 'pune', 1), (2, 'ganesh', 'mumbai', 1)
+insert into Student values (3, 'vishal', 'pune', 2)
+insert into Student values (4, 'bahu', 'pune', 20)
+go
+select * from Trainer
+select * from Student
