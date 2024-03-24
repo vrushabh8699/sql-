@@ -1,0 +1,11 @@
+--- Local Temp Table
+create table #solid
+(
+rollno int identity primary key,
+name varchar(50),
+age int check(age>=1 and age<=150),
+gender varchar(20)
+)
+go
+insert into #solid values ('pravin',22,'male'),('shila',29,'female'),('lata',42,'female')
+select * from #solid
