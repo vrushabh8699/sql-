@@ -1,0 +1,14 @@
+use ADO
+go
+declare @day int =5
+select case
+when @day =1 then 'sun' 
+when @day =2 then 'mon'
+when @day =3 then 'tue'
+when @day =4 then 'wed'
+when @day =5 then 'thu'
+when @day =6 then 'fri'
+when @day =7 then 'sat'
+else 'invalid'
+end
+
