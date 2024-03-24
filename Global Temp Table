@@ -1,0 +1,10 @@
+----- Globle Temp Table
+create table ##solid
+(
+rollno int identity primary key,
+name varchar(50),
+age int check(age>=1 and age<=150),
+gender varchar(20)
+)
+insert into ##solid values ('lalita',22,'female'),('vishal',29,'male'),('shita',42,'female')
+select * from ##solid
